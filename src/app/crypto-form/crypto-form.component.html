@@ -1,0 +1,41 @@
+<div ng-app="">
+  <h5>{{todaysDate | date : 'short'}}</h5>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <label for="name" class="font-weight-bold">Name</label>
+    <input type="text" id="name" class="form-control" [(ngModel)]="cryptoSurvey.name">
+  </div>
+  <div class="col-md-6">
+    <label for="crytpos" class="font-weight-bold">Favorite Crypto</label>
+    <select id="crytpos" class="form-control" [(ngModel)]="cryptoSurvey.favoriteCrypto">
+      <option value=""></option>
+    <option [value]="crypto.name" *ngFor="let crypto of top100Cryptos">{{crypto.name}}</option>
+    </select>
+
+  </div>
+<div></div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <label for="loveCrypto" class="font-weight-bold">Do You Love Crypto</label>
+    <select id="loveCrypto" class="form-control"></select>
+    <option value="true">{{true | yesNo}}</option>
+    <option value="false">{{false}}</option>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <label for="comments" class="font-weight-bold">Comments</label>
+    <textarea id="comments" [(ngModel)]="cryptoSurvey.comments" class="form-control"></textarea>
+  </div>
+</div>
+
+<div class="row mt-2">
+  <div class="col-md-12">
+      <button [routerLink]="['submitted']" class="btn btn-outline-success btn-block" (click)="sendForm()" >Send Form</button>
+  </div>
+ 
+</div>
+
